@@ -48,7 +48,7 @@ must stay green.
 
 ## Running locally
 
-```
+```bash
 cd rung-2
 cargo check      # must fail pre-fix with E0277
 cargo test       # fails pre-fix (bin doesn't build), passes post-fix
@@ -58,13 +58,68 @@ cargo test       # fails pre-fix (bin doesn't build), passes post-fix
 
 From minimac:
 
-```
+```bash
 gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
   --base rung-2 --reset -y --no-self-review --no-ci-watch
 ```
 
 Scoring:
 
-```
+```bash
 python bench/bench_rung.py --rung 2 --pr-url <PR-URL>
 ```
+
+## Installation
+
+To run this project locally, ensure you have Rust installed.
+
+1. Clone the repository:
+```bash
+git clone <repository_url>
+cd gitoma-bench-ladder
+```
+
+2. Build and test (for development):
+```bash
+cargo check
+cargo test
+```
+
+## Usage
+
+This project is a benchmark rung for testing Rust's result handling.
+
+*   **Testing:** Run `cargo test` to verify that the fix maintains test coverage.
+*   **Benchmarking:** Use `gitoma run` to score this rung against others.
+
+## Contributing
+
+Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to submit pull requests.
+
+1.  Fork the repository.
+2.  Create a new feature branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Example
+
+Example of fixing the issue (Option A):
+
+```rust
+match divide(10, 2) {
+    Ok(v) => println!("10/2 = {v}"),
+    Err(e) => eprintln!("error: {e}"),
+}
+```
+
+## Features
+
+This rung specifically tests the compiler's strictness regarding Rust's `Result` type and its inability to implicitly convert to `Display`.
+
+*   Tests the compiler's strictness on Result types.
+*   Validates that idiomatic error handling patterns are accepted.
