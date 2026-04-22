@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / compiled files
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Data files
+golden.json
+
+# Testing and coverage
+tests/
+coverage/
+
+# IDE and OS specific files
+.vscode/
+*.swp
+.DS_Store
