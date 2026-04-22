@@ -1,5 +1,9 @@
 # Rung 0 — single file, single bug
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## What this rung tests
 
 The most basic worker-fix-testpass loop: gitoma reads one broken
@@ -42,10 +46,60 @@ gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
 Gitoma will create a working branch off `rung-0`, fix the bug, open
 a PR targeting `rung-0`.
 
-## Scoring
+## Running gitoma on this rung (Installation)
 
-From this repo's `main` branch:
+To run tests or use the toolchain, install the required dependencies:
 
+```bash
+pip install -r requirements-test.txt
 ```
-python bench/bench_rung.py --rung 0 --pr-url <url-printed-by-gitoma>
+
+## Usage Examples for calc.py
+This section demonstrates how to use the functions available in `calc.py`.
+
+### Basic Average Calculation
+
+To calculate the average of a list of numbers, use the `average` function:
+
+```python
+from calc import average
+
+numbers = [1, 2, 3, 4, 5]
+result = average(numbers)
+print(f"The average is: {result}")  # Output: The average is: 3.0
+
+empty_list = []
+# This will raise a ValueError if not handled internally by the function
+# average(empty_list)
 ```
+
+### Calculating Average for a Single Number
+
+Use `average` with a single-element list:
+
+```python
+from calc import average
+
+single_number = [42]
+result = average(single_number)
+print(f"The average is: {result}")  # Output: The average is: 42
+```
+
+## Contributing
+
+We welcome contributions! If you find a bug, have a feature idea, or want to improve the tooling,
+please feel free to open an issue or submit a pull request.
+
+### How to Contribute
+
+1. **Fork the repository:** Create your own fork of this repository.
+2. **Clone locally:** Clone your fork to your local machine.
+3. **Create a new branch:** Create a new branch for your changes (`git checkout -b feature/my-new-thing`).
+4. **Make your changes:** Implement the fix or feature.
+5. **Test:** Ensure your changes pass all existing tests (run `python -m pytest`).
+6. **Commit:** Commit your changes with a descriptive message.
+7. **Pull Request (PR):** Open a Pull Request targeting the main branch. Please ensure your PR includes relevant tests if you are changing test logic.
+
+### Code of Conduct
+
+We are committed to maintaining a friendly and inclusive development environment. Please read our [CODE_OF_CONDUCT.md] (if one exists, otherwise add one) for guidelines on respectful interaction.

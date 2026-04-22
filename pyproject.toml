@@ -9,5 +9,20 @@ description = "Rung 0 of the gitoma bench ladder — single file, single bug."
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
+pythonpath = [""]
 testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.coverage]
+enabled = true
+fail_under = 80
+
+[tool.mypy]
+ignore_missing_imports = true
+strict = true
+warn_redundant_casts = true
+show_error_codes = true
+extend_parents = true
+dependencies = ["mypy"]
