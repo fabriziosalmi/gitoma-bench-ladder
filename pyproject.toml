@@ -25,3 +25,4 @@ strict = true
 warn_redundant_casts = true
 show_error_codes = true
 extend_parents = true
+dependencies = ["mypy"]
