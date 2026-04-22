@@ -1,0 +1,15 @@
+site_name: Gitoma Bench Ladder
+sitemap:
+  - index.md
+nav:
+  - Home: index.md
+    children:
+      - Setup: setup.md
+      - Benchmarks: benchmarks.md
+  - API: api.md
+
+theme:
+  name: material
+
+plugins:
+  - search
