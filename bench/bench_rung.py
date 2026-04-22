@@ -91,18 +91,24 @@ def _apply_pr_and_run_tests(repo: str, pr_number: int, base: str, rung: int) -> 
     if merge.returncode != 0:
         return "error", {"merge_conflict": True, "stderr": merge.stderr[-500:]}
 
-    # Detect test framework by presence of markers
-    has_pytest = (workdir / "tests").is_dir() or any(p.name.startswith("test_") and p.suffix == ".py" for p in workdir.iterdir())
+    # Detect test framework. Order matters: language markers (Cargo.toml,
+    # go.mod, package.json) win over the generic ``tests/`` dir, because a
+    # Rust crate has ``tests/`` for integration tests too — picking pytest
+    # there silently runs zero tests and reports failure (caught live on
+    # rung-2 where a clean Rust PR was scored as failing pytest).
     has_cargo = (workdir / "Cargo.toml").exists()
     has_gomod = (workdir / "go.mod").exists()
     has_npm = (workdir / "package.json").exists()
+    has_pytest = (
+        not (has_cargo or has_gomod or has_npm)
+        and (
+            (workdir / "pyproject.toml").exists()
+            or (workdir / "setup.py").exists()
+            or any(p.name.startswith("test_") and p.suffix == ".py" for p in workdir.iterdir() if p.is_file())
+            or any(p.suffix == ".py" for p in workdir.iterdir() if p.is_file())
+        )
+    )
 
-    if has_pytest:
-        # Need pytest in the venv. Caller must ensure; else skip.
-        r = _run(["python", "-m", "pytest", "-q", "--no-header"], cwd=workdir, check=False)
-        verdict = "pass" if r.returncode == 0 else "fail"
-        detail = {"framework": "pytest", "exit": r.returncode, "tail": r.stdout[-500:] + r.stderr[-500:]}
-        return verdict, detail
     if has_cargo:
         r = _run(["cargo", "test", "--quiet"], cwd=workdir, check=False)
         return ("pass" if r.returncode == 0 else "fail"), {"framework": "cargo", "exit": r.returncode, "tail": r.stdout[-500:] + r.stderr[-500:]}
@@ -112,6 +118,11 @@ def _apply_pr_and_run_tests(repo: str, pr_number: int, base: str, rung: int) -> 
     if has_npm:
         r = _run(["npm", "test", "--silent"], cwd=workdir, check=False)
         return ("pass" if r.returncode == 0 else "fail"), {"framework": "npm", "exit": r.returncode, "tail": r.stdout[-500:] + r.stderr[-500:]}
+    if has_pytest:
+        r = _run(["python", "-m", "pytest", "-q", "--no-header"], cwd=workdir, check=False)
+        verdict = "pass" if r.returncode == 0 else "fail"
+        detail = {"framework": "pytest", "exit": r.returncode, "tail": r.stdout[-500:] + r.stderr[-500:]}
+        return verdict, detail
 
     return "no_tests", {"reason": "no test framework markers found at repo root"}
 
