@@ -15,3 +15,7 @@ bin/
 # IDE and editor files
 .idea/
 *.swp
+
+# Secrets
+.env
+.envrc
