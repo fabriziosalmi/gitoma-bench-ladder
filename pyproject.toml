@@ -24,4 +24,5 @@ show_error_codes = true
 extend_parents = true
 dependencies = [
     "mypy>=1.0",
+    "ruff",
 ]
