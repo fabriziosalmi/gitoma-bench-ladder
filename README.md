@@ -20,7 +20,7 @@ The vulnerability is fixed by switching to parameterised queries provided by the
 ```python
 cur = conn.execute(
     "SELECT id, name FROM users WHERE name = ?",
-    (name,),
+    (name),
 )
 ```
 
