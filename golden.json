@@ -1,0 +1,21 @@
+{
+  "rung": 0,
+  "name": "single-file off-by-one in average()",
+  "language": "python",
+  "bugs_injected": [
+    {
+      "id": "R0-001",
+      "file": "calc.py",
+      "line_hint": 18,
+      "category": "off_by_one",
+      "description": "average() divides by len(nums) - 1 instead of len(nums). Any non-single-element input yields the wrong mean; the failing test test_average_of_three pins it."
+    }
+  ],
+  "expected_patches_must_touch": ["calc.py"],
+  "expected_tests_pass": [
+    "tests/test_calc.py::test_average_of_three",
+    "tests/test_calc.py::test_average_single",
+    "tests/test_calc.py::test_average_empty_raises"
+  ],
+  "notes": "The devil is not expected to flag blocker on this rung — the worker's diff should be a clean 1-line fix, giving devil nothing to catch. If devil IS flagging the worker's fix, that's a devil calibration bug surfacing here."
+}
