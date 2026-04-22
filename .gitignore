@@ -15,5 +15,5 @@ htmlcov/
 golden.json
 
 # Python specific artifacts
-__pycache__/
+__pycache__/ 
 *.log
