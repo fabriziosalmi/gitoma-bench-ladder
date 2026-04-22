@@ -13,4 +13,23 @@ pythonpath = ["."]
 testpaths = ["tests"]
 
 [coverage]
-branch = True
+branch = true
+
+[tool.ruff]
+line-length = 88
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "UP",
+    "B",
+    "N",
+    "PL",
+    "D"
+]
+ignore = [
+    "E501",
+    "F841",
+    "W291",
+]
