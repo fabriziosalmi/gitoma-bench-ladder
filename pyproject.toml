@@ -14,3 +14,7 @@ testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 88
+
+[tool.coverage]
+enabled = true
+fail_under = 80
