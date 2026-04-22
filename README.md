@@ -10,7 +10,7 @@ and the worker should reach for the parameterised-query idiom.
 
 ## The injected bug
 
-`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`.
+`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`. 
 F-string interpolation lets the caller close the SQL literal and
 inject arbitrary statements. The two adversarial tests in
 `tests/test_db.py` make this concrete:
@@ -25,7 +25,7 @@ inject arbitrary statements. The two adversarial tests in
 ```python
 cur = conn.execute(
     "SELECT id, name FROM users WHERE name = ?",
-    (name,),
+    (name),
 )
 ```
 
@@ -57,6 +57,5 @@ gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
 
 Scoring:
 
-```
-python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
+```python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
