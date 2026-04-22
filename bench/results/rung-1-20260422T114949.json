@@ -1,0 +1,35 @@
+{
+  "rung": 1,
+  "pr_url": "https://github.com/fabriziosalmi/gitoma-bench-ladder/pull/3",
+  "pr_number": 3,
+  "base_branch": "rung-1",
+  "touched_files": [
+    ".gitignore",
+    ".golangci.yml",
+    ".pre-commit-config.yaml",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "docs/CONTRIBUTING.md",
+    "docs/README.md",
+    "docs/SECURITY.md",
+    "server/server.go"
+  ],
+  "expected_files": [
+    "server/server.go"
+  ],
+  "patch_coverage": 1.0,
+  "test_health": "pass",
+  "test_detail": {
+    "framework": "go",
+    "exit": 0,
+    "tail": "ok  \tgitoma-bench-rung-1/server\t0.472s\n?   \tgitoma-bench-rung-1/store\t[no test files]\n"
+  },
+  "loc_added": 282,
+  "loc_modified": 9,
+  "omega": 31.333,
+  "gamma_pre": -1,
+  "gamma_post": -1,
+  "ts": "2026-04-22T11:49:49+00:00"
+}
