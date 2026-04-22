@@ -1,0 +1,32 @@
+{
+  "rung": 1,
+  "pr_url": "https://github.com/fabriziosalmi/gitoma-bench-ladder/pull/6",
+  "pr_number": 6,
+  "base_branch": "rung-1",
+  "touched_files": [
+    ".gitignore",
+    ".golangci.yml",
+    ".pre-commit-config.yaml",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "docs/README.md",
+    "server/server.go"
+  ],
+  "expected_files": [
+    "server/server.go"
+  ],
+  "patch_coverage": 1.0,
+  "test_health": "fail",
+  "test_detail": {
+    "framework": "go",
+    "exit": 1,
+    "tail": "FAIL\tgitoma-bench-rung-1/server [build failed]\n?   \tgitoma-bench-rung-1/store\t[no test files]\nFAIL\n# gitoma-bench-rung-1/server [gitoma-bench-rung-1/server.test]\nserver/server.go:24:12: invalid operation: err != nil (mismatched types bool and untyped nil)\n"
+  },
+  "loc_added": 161,
+  "loc_modified": 15,
+  "omega": 10.733,
+  "gamma_pre": -1,
+  "gamma_post": -1,
+  "ts": "2026-04-22T12:29:13+00:00"
+}
