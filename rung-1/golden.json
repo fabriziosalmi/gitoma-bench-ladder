@@ -1,0 +1,20 @@
+{
+  "rung": 1,
+  "name": "cross-file Go signature mismatch",
+  "language": "go",
+  "bugs_injected": [
+    {
+      "id": "R1-001",
+      "file": "server/server.go",
+      "line_hint": 27,
+      "category": "compile_error_signature_mismatch",
+      "description": "server.Greet calls store.UserStore.Get with the old 1-return-value style, but Get's signature is now (string, bool). The file does not compile, so go test cannot even run. The fix requires (a) reading store/store.go to learn the new signature and the meaning of the bool, and (b) updating Greet to handle both return values — when ok is false, return 'Hello, stranger!'."
+    }
+  ],
+  "expected_patches_must_touch": ["server/server.go"],
+  "expected_tests_pass": [
+    "TestGreetKnownUser",
+    "TestGreetUnknownUser"
+  ],
+  "notes": "The fix is single-file (server.go) but REQUIRES cross-file reading (store.go). If the worker patches server.go without reading store.go, it will make up a signature and the fix will fail to compile. This rung measures: does the worker pull in the needed cross-file context before emitting a patch?"
+}
