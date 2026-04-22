@@ -20,3 +20,10 @@ explicit_package_level_contracts = true
 plugins = [
     "mypy_extensions",
 ]
+
+[tool.mypy.overrides]
+# Add mypy dependency configuration here if needed, or just ensure it's in dependencies
+# Since the request is to install dependency, we assume it should be added to project dependencies.
+dependencies = [
+    "mypy",
+]
