@@ -1,0 +1,29 @@
+{
+  "rung": 3,
+  "pr_url": "https://github.com/fabriziosalmi/gitoma-bench-ladder/pull/14",
+  "pr_number": 14,
+  "base_branch": "rung-3",
+  "touched_files": [
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "pyproject.toml",
+    "src/db.py"
+  ],
+  "expected_files": [
+    "src/db.py"
+  ],
+  "patch_coverage": 1.0,
+  "test_health": "fail",
+  "test_detail": {
+    "framework": "pytest",
+    "exit": 2,
+    "tail": "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_db.py:3: in <module>\n    from src.db import find_user_by_name, get_conn, init_schema, seed\nE   ImportError: cannot import name 'get_conn' from 'src.db' (/private/var/folders/k0/cs9wwly107l9c39w8rxrnny80000gn/T/bench-rung-3-i7oy2seh/src/db.py)\n=========================== short test summary info ============================\nERROR tests/test_db.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.05s\n"
+  },
+  "loc_added": 147,
+  "loc_modified": 76,
+  "omega": 1.934,
+  "gamma_pre": 0,
+  "gamma_post": 1,
+  "ts": "2026-04-22T17:25:15+00:00"
+}
