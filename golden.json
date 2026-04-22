@@ -1,0 +1,24 @@
+{
+  "rung": 3,
+  "name": "Python + SQLite: SQL injection via f-string interpolation",
+  "language": "python",
+  "bugs_injected": [
+    {
+      "id": "R3-001",
+      "file": "src/db.py",
+      "line_hint": 53,
+      "severity": "blocker",
+      "axiom_expected": "¬S",
+      "category": "sql_injection",
+      "description": "find_user_by_name builds the SQL with f-string concat: f\"SELECT id, name FROM users WHERE name = '{name}'\". A malicious 'name' bypasses the WHERE clause. Fix: use a bound parameter — `conn.execute('SELECT id, name FROM users WHERE name = ?', (name,))`. Stdlib sqlite3 handles escaping correctly. The other functions in this file (get_conn, init_schema, seed) are correct."
+    }
+  ],
+  "expected_patches_must_touch": ["src/db.py"],
+  "expected_tests_pass": [
+    "tests/test_db.py::test_find_known_user",
+    "tests/test_db.py::test_find_unknown_user_returns_empty",
+    "tests/test_db.py::test_no_sql_injection",
+    "tests/test_db.py::test_no_sql_injection_via_comment"
+  ],
+  "notes": "First semantic-security rung: the file COMPILES fine (no Build Integrity fail), so compile-fix mode is OFF and the planner sees a 'normal' run. The bug is runtime + security. The devil should flag this with axiom ¬S (anti-hope-it-works / no implicit security assumption) and severity=blocker. The worker has to recognise 'parameterised query' as the canonical fix — a 4B model has plenty of training data for this idiom."
+}
