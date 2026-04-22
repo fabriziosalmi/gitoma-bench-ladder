@@ -28,8 +28,8 @@ cur = conn.execute(
 ```
 
 Stdlib `sqlite3` binds the parameter — the input is never parsed
-as SQL. This is the canonical fix; any equivalent (named binding,
-prepared statement) is fine as long as the f-string is removed.
+as SQL. This is the canonical fix; any equivalent (named binding, prepared statement)
+is fine as long as the f-string is removed.
 
 The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`)
 are correct. If gitoma touches them, that's a regression.
@@ -60,6 +60,26 @@ Scoring:
 
 ```python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
+
+## Installation
+
+To set up and run this rung locally:
+
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   cd rung-3
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt  # Assuming a requirements file exists, or list them manually
+   ```
+
+3. Run tests:
+   ```bash
+   python -m pytest -q
+   ```
 
 ## Documentation and Guidance
 
