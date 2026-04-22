@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / compiled files
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Testing and coverage
+tests/
+coverage/
+htmlcov/
+
+# Data files generated during execution
+golden.json
+
+# Python specific artifacts
+__pycache__/
+*.log
