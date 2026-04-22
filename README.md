@@ -1,5 +1,9 @@
 # Rung 0 — single file, single bug
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## What this rung tests
 
 The most basic worker-fix-testpass loop: gitoma reads one broken
