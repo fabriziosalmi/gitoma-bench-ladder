@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=61"]
-build-backend = "setuptools.build_meta"
+build_backend = "setuptools.build_meta"
 
 [project]
 name = "gitoma-bench-rung-3"
@@ -9,5 +9,30 @@ description = "Rung 3 of the gitoma bench ladder — Python + SQLite, SQL-inject
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
+pythonpath = [""]
 testpaths = ["tests"]
+
+[tool.mypy]
+ignore_missing_imports = true
+strict = true
+warn_redundant_casts = true
+show_error_codes = true
+
+[tool.ruff]
+line-length = 88
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "UP",
+    "B"
+]
+ignore = [
+    "E501",
+    "F841",
+    "D100"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
