@@ -1,0 +1,12 @@
+# Build artifacts
+target/
+
+# Cargo lock file (often generated)
+cargo.lock
+
+# Compiled binaries/outputs
+*.exe
+
+# Logs and temporary files
+*.log
+tmp/
