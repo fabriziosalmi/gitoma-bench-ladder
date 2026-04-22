@@ -1,0 +1,29 @@
+{
+  "rung": 0,
+  "pr_url": "https://github.com/fabriziosalmi/gitoma-bench-ladder/pull/2",
+  "pr_number": 2,
+  "base_branch": "rung-0",
+  "touched_files": [
+    ".gitignore",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "pyproject.toml"
+  ],
+  "expected_files": [
+    "calc.py"
+  ],
+  "patch_coverage": 0.0,
+  "test_health": "fail",
+  "test_detail": {
+    "framework": "pytest",
+    "exit": 1,
+    "tail": " is undefined\")\n        total = 0.0\n        for n in nums:\n            total += n\n>       return total / (len(nums) - 1)\n               ^^^^^^^^^^^^^^^^^^^^^^^\nE       ZeroDivisionError: float division by zero\n\ncalc.py:23: ZeroDivisionError\n=========================== short test summary info ============================\nFAILED tests/test_calc.py::test_average_of_three - assert 3.0 == 2.0\nFAILED tests/test_calc.py::test_average_single - ZeroDivisionError: float div...\n2 failed, 1 passed in 0.01s\n"
+  },
+  "loc_added": 128,
+  "loc_modified": 4,
+  "omega": 32.0,
+  "gamma_pre": 0,
+  "gamma_post": 0,
+  "ts": "2026-04-22T11:37:18+00:00"
+}
