@@ -2,15 +2,13 @@
 
 ## What this rung tests
 
-Semantic security bug. The file compiles fine (no Build Integrity
-fail), but a single function leaks the entire users table to anyone
-who supplies a malicious name. This is the canonical SQL-injection
+Semantic security bug. The file compiles fine (no Build Integrity fail), but a single function leaks the entire users table to anyone who supplies a malicious name. This is the canonical SQL-injection
 pattern; gitoma's devil should flag it as a `¬S` (anti-hope) blocker
 and the worker should reach for the parameterised-query idiom.
 
 ## The injected bug
 
-`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`.
+`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`. 
 F-string interpolation lets the caller close the SQL literal and
 inject arbitrary statements. The two adversarial tests in
 `tests/test_db.py` make this concrete:
@@ -25,13 +23,13 @@ inject arbitrary statements. The two adversarial tests in
 ```python
 cur = conn.execute(
     "SELECT id, name FROM users WHERE name = ?",
-    (name,),
+    (name),
 )
 ```
 
 Stdlib `sqlite3` binds the parameter — the input is never parsed
-as SQL. This is the canonical fix; any equivalent (named binding,
-prepared statement) is fine as long as the f-string is removed.
+as SQL. This is the canonical fix; any equivalent (named binding, prepared statement)
+is fine as long as the f-string is removed.
 
 The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`)
 are correct. If gitoma touches them, that's a regression.
@@ -43,8 +41,11 @@ cd rung-3
 python -m pytest -q
 ```
 
-Expected (pre-fix): 2 fail (the two injection tests), 2 pass.
-Expected (post-fix): 4 pass.
+To run static analysis with Ruff:
+
+```bash
+pip install ruff && ruff check .
+```
 
 ## Running gitoma on this rung
 
@@ -57,6 +58,58 @@ gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
 
 Scoring:
 
+```python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
-python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
+
+## Installation
+
+To set up and run this rung locally:
+
+1. Clone the repository:
+   ```bash
+git clone <repository_url>
+   cd rung-3
+   ```
+
+2. Install dependencies:
+   ```pip install -r requirements.txt  # Assuming a requirements file exists, or list them manually
+   ```
+
+3. Run tests:
+   ```python -m pytest -q
+   ```
+
+## Documentation and Guidance
+
+Detailed documentation, setup instructions, and contribution guidelines can be found on the [GitHub Wiki](https://github.com/fabriziosalmi/gitoma-bench-ladder/wiki).
+
+For specific rung details, please refer to the [docs/README.md](docs/README.md) directory.
+
+## Usage Example
+
+This section demonstrates how to run the tests and analysis for this specific rung.
+
+### Running Unit Tests
+
+To verify the fix and ensure no regressions, run the unit tests:
+
+```bash
+python -m pytest -q
+```
+
+### Running Static Analysis
+
+To check code style and potential issues using Ruff:
+
+```bash
+pip install ruff && ruff check .
+```
+
+### Running gitoma Benchmarking
+
+To run the full benchmarking process against this rung:
+
+```
+gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
+  --base rung-3 --reset -y --no-self-review --no-ci-watch
 ```
