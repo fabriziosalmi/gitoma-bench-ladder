@@ -15,3 +15,16 @@ testpaths = ["tests"]
 [tool.coverage]
 enabled = true
 branch = "truthy"
+
+[tool.mypy]
+ignore_missing_imports = true
+strict = true
+warn_redundant_casts = true
+show_error_codes = true
+files = [
+    "src",
+    "tests"
+]
+extend_exclude = [
+    "tests/test_db",
+]
