@@ -1,0 +1,20 @@
+go.mod
+
+# Go build artifacts
+*.exe
+
+# Compiled binaries and output
+bin/
+
+# IDE/Editor specific files
+.idea/
+*.iml
+*.swp
+
+# Logs and temporary files
+*.log
+tmp/
+
+# Secrets and sensitive information
+.env
+*.env
