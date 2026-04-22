@@ -67,13 +67,13 @@ To set up and run this rung locally:
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+git clone <repository_url>
    cd rung-3
    ```
 
 2. Install dependencies:
    ```bash
-   pip install -r requirements.txt  # Assuming a requirements file exists, or list them manually
+pip install -r requirements.txt  # Assuming a requirements file exists, or list them manually
    ```
 
 3. Run tests:
@@ -86,3 +86,32 @@ To set up and run this rung locally:
 Detailed documentation, setup instructions, and contribution guidelines can be found on the [GitHub Wiki](https://github.com/fabriziosalmi/gitoma-bench-ladder/wiki).
 
 For specific rung details, please refer to the [docs/README.md](docs/README.md) directory.
+
+## Usage Example
+
+This section demonstrates how to run the tests and analysis for this specific rung.
+
+### Running Unit Tests
+
+To verify the fix and ensure no regressions, run the unit tests:
+
+```bash
+python -m pytest -q
+```
+
+### Running Static Analysis
+
+To check code style and potential issues using Ruff:
+
+```bash
+pip install ruff && ruff check .
+```
+
+### Running gitoma Benchmarking
+
+To run the full benchmarking process against this rung:
+
+```bash
+gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
+  --base rung-3 --reset -y --no-self-review --no-ci-watch
+```
