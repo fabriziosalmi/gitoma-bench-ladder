@@ -31,4 +31,8 @@ select = [
 ignore = [
     "E501",
     "F841",
+    "D100"
 ]
+
+[tool.setuptools.packages.find]
+where = ["src"]
