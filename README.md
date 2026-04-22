@@ -42,10 +42,18 @@ gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
 Gitoma will create a working branch off `rung-0`, fix the bug, open
 a PR targeting `rung-0`.
 
+## Running gitoma on this rung (Installation)
+
+To run tests or use the toolchain, install the required dependencies:
+
+```bash
+pip install -r requirements-test.txt
+```
+
 ## Scoring
 
 From this repo's `main` branch:
 
-```
-python bench/bench_rung.py --rung 0 --pr-url <url-printed-by-gitoma>
+```python
+bench/bench_rung.py --rung 0 --pr-url <url-printed-by-gitoma>
 ```
