@@ -9,5 +9,20 @@ description = "Rung 3 of the gitoma bench ladder — Python + SQLite, SQL-inject
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
+pythonpath = [""]
 testpaths = ["tests"]
+
+[tool.coverage]
+enabled = true
+branch = "enforce"
+
+[tool.mypy]
+ignore_missing_imports = true
+strict = true
+warn_redundant_casts = true
+show_error_codes = true
+extend_parents = true
+dependencies = [
+    "mypy>=1.0",
+    "ruff",
+]
