@@ -1,0 +1,33 @@
+{
+  "rung": 1,
+  "pr_url": "https://github.com/fabriziosalmi/gitoma-bench-ladder/pull/4",
+  "pr_number": 4,
+  "base_branch": "rung-1",
+  "touched_files": [
+    ".gitignore",
+    ".golangci.yml",
+    ".pre-commit-config.yaml",
+    "LICENSE",
+    "README.md",
+    "docs/CONTRIBUTING.md",
+    "docs/README.md",
+    "go.mod",
+    "server/server.go"
+  ],
+  "expected_files": [
+    "server/server.go"
+  ],
+  "patch_coverage": 1.0,
+  "test_health": "fail",
+  "test_detail": {
+    "framework": "go",
+    "exit": 1,
+    "tail": "go: errors parsing go.mod:\ngo.mod:5: unknown directive: #\ngo.mod:6: unknown directive: #\ngo.mod:7: unknown directive: #\ngo.mod:9: unknown directive: #\ngo.mod:10: unknown directive: #\n"
+  },
+  "loc_added": 132,
+  "loc_modified": 15,
+  "omega": 8.8,
+  "gamma_pre": -1,
+  "gamma_post": -1,
+  "ts": "2026-04-22T12:02:27+00:00"
+}
