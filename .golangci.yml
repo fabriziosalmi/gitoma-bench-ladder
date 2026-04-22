@@ -1,0 +1,9 @@
+linters:
+  - gosec
+  - errcheck
+  - staticcheck
+
+issue_semver:
+  # Enforce semantic versioning for dependencies if applicable, or just good practice
+  # This section is often used for dependency version checks, adjust as needed.
+  # For general linting, we focus on code quality tools above.
