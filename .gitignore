@@ -1,0 +1,22 @@
+## Go build artifacts
+
+# Compiled binaries and temporary files
+*.exe
+*.test
+
+# Go module cache
+**/go/pkg/
+
+# Build artifacts
+bin/
+
+# IDE and editor specific files
+.idea/
+*.swp
+
+# Logs and temporary data
+*.log
+tmp/
+
+# Sensitive or generated files (if any exist, otherwise keep general)
+golden.json # Assuming this might be generated or sensitive
