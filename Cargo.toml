@@ -1,0 +1,15 @@
+[package]
+name = "gitoma-bench-rung-2"
+version = "0.1.0"
+edition = "2021"
+# Stdlib-only on purpose: cargo check must succeed offline on any
+# machine. Adding HTTP / axum / etc. would require network to fetch
+# deps on first run, which is a fragile dependency for a bench.
+
+[[bin]]
+name = "app"
+path = "src/main.rs"
+
+[lib]
+name = "calc"
+path = "src/calculator.rs"

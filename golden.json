@@ -1,0 +1,21 @@
+{
+  "rung": 2,
+  "name": "Rust: caller not updated after Result<_,_> signature change",
+  "language": "rust",
+  "bugs_injected": [
+    {
+      "id": "R2-001",
+      "file": "src/main.rs",
+      "line_hint": 21,
+      "category": "compile_error_display_trait_missing",
+      "description": "main.rs tries to println! a Result<i32, String>, but Result does not implement Display. The error from rustc is 'doesn't implement `std::fmt::Display`'. Fix: handle the Result via match / unwrap / expect / ?-propagation. The library (calculator.rs) is correct and must not be modified; the tests don't depend on main."
+    }
+  ],
+  "expected_patches_must_touch": ["src/main.rs"],
+  "expected_tests_pass": [
+    "divides_cleanly",
+    "reports_zero_denom",
+    "negative_inputs_work"
+  ],
+  "notes": "Rust-flavoured rung: tests the worker's ability to parse a cargo error, read the Result signature from calculator.rs, and pick a Result-handling idiom. The fix lives entirely in main.rs — if gitoma touches calculator.rs that's a regression. Also probes the new worker build-retry loop: if the worker emits a broken first attempt (e.g., uses .unrwap — typo — or drops the Result entirely), cargo check will catch it and the retry should heal on attempt #2."
+}
