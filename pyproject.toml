@@ -10,7 +10,8 @@ requires-python = ">=3.10"
 
 dependencies = [
     "python>=3.10",
-    "mypy"
+    "mypy",
+    "ruff"
 ]
 
 [tool.pytest.ini_options]
