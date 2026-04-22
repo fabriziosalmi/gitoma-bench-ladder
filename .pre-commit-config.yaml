@@ -1,0 +1,10 @@
+repos:
+- repo: github-actions
+  rev: v0
+  hooks:
+    - id: check-task-runner
+      name: run golangci-lint
+      with:
+        args:
+          - "go"
+          - "clean"

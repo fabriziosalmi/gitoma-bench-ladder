@@ -1,0 +1,28 @@
+## golangci-lint configuration
+
+This file configures the rules for golangci-lint to ensure code quality and adherence to best practices.
+
+```yaml
+run:
+  - go test ./...
+
+linters:
+  # Basic style and error checking
+  - gofmt
+  - go vet
+  - errs
+  - staticcheck
+
+  # Recommended best practices and common pitfalls
+  - gosec
+  - stylelint
+  - unused_imports
+  - deadcode
+  - complexity
+
+  # Optional: More strict rules can be added here based on project needs
+  # - gosec-hard
+
+extendcc:
+  # Configuration for specific tools if needed
+  pass

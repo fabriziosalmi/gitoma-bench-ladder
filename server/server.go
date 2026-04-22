@@ -2,7 +2,6 @@ package server
 
 import (
 	"fmt"
-
 	"gitoma-bench-rung-1/store"
 )
 
@@ -24,6 +23,9 @@ func New(users *store.UserStore) *Server {
 //  2. Updating this function to handle both return values. When the
 //     user is not found, the greeting is "Hello, stranger!".
 func (s *Server) Greet(id int) string {
-	name := s.users.Get(id)
+	name, ok := s.users.Get(id)
+	if !ok {
+		return "Hello, stranger!"
+	}
 	return fmt.Sprintf("Hello, %s!", name)
 }
