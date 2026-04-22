@@ -8,6 +8,9 @@ version = "0.0.1"
 description = "Rung 3 of the gitoma bench ladder — Python + SQLite, SQL-injection bug."
 requires-python = ">=3.10"
 
+[project.dependencies]
+mypy = "^1.9.0"
+
 [tool.pytest.ini_options]
 pythonpath = [""]
 testpaths = ["tests"]
