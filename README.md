@@ -2,9 +2,7 @@
 
 ## What this rung tests
 
-Semantic security bug. The file compiles fine (no Build Integrity
-fail), but a single function leaks the entire users table to anyone
-who supplies a malicious name. This is the canonical SQL-injection
+Semantic security bug. The file compiles fine (no Build Integrity fail), but a single function leaks the entire users table to anyone who supplies a malicious name. This is the canonical SQL-injection
 pattern; gitoma's devil should flag it as a `¬S` (anti-hope) blocker
 and the worker should reach for the parameterised-query idiom.
 
@@ -60,6 +58,11 @@ gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
 
 Scoring:
 
+```python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
-python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
-```
+
+## Documentation and Guidance
+
+Detailed documentation, setup instructions, and contribution guidelines can be found on the [GitHub Wiki](https://github.com/fabriziosalmi/gitoma-bench-ladder/wiki).
+
+For specific rung details, please refer to the [docs/README.md](docs/README.md) directory.
