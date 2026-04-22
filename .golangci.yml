@@ -1,0 +1,6 @@
+linters:
+  - gosec
+  - staticcheck
+  - errcheck
+  - style/orderednames
+  - go vet
