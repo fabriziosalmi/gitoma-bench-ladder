@@ -43,8 +43,6 @@ cd rung-3
 python -m pytest -q
 ```
 
-## Installing dependencies
-
 To run static analysis with Ruff:
 
 ```bash
