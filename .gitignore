@@ -1,0 +1,17 @@
+# Build artifacts
+
+*.exe
+*.dll
+*.so
+*.o
+
+# Go build artifacts
+bin/
+
+# Generated files
+*.log
+*.tmp
+
+# IDE and editor files
+.idea/
+*.swp
