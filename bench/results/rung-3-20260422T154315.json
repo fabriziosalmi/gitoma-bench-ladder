@@ -1,0 +1,29 @@
+{
+  "rung": 3,
+  "pr_url": "https://github.com/fabriziosalmi/gitoma-bench-ladder/pull/11",
+  "pr_number": 11,
+  "base_branch": "rung-3",
+  "touched_files": [
+    "LICENSE",
+    "README.md",
+    "mkdocs.yml",
+    "pyproject.toml",
+    "src/db.py"
+  ],
+  "expected_files": [
+    "src/db.py"
+  ],
+  "patch_coverage": 1.0,
+  "test_health": "fail",
+  "test_detail": {
+    "framework": "pytest",
+    "exit": 1,
+    "tail": " statement uses 1, and there are 5 supplied.\n\nsrc/db.py:28: ProgrammingError\n=========================== short test summary info ============================\nERROR tests/test_db.py::test_find_known_user - sqlite3.ProgrammingError: Inco...\nERROR tests/test_db.py::test_find_unknown_user_returns_empty - sqlite3.Progra...\nERROR tests/test_db.py::test_no_sql_injection - sqlite3.ProgrammingError: Inc...\nERROR tests/test_db.py::test_no_sql_injection_via_comment - sqlite3.Programmi...\n4 errors in 0.03s\n"
+  },
+  "loc_added": 169,
+  "loc_modified": 72,
+  "omega": 2.347,
+  "gamma_pre": 0,
+  "gamma_post": 2,
+  "ts": "2026-04-22T15:43:15+00:00"
+}
