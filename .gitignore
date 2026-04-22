@@ -1,0 +1,20 @@
+# Build artifacts
+
+*.exe
+*.dll
+*.so
+*.o
+
+# Go build artifacts
+bin/
+
+# IDE and editor files
+.idea/
+*.swp
+
+# Logs and temporary files
+*.log
+tmp/
+
+# Go module cache (optional, but good practice)
+# go.mod is tracked, but caching might be useful
