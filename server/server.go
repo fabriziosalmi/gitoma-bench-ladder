@@ -2,7 +2,6 @@ package server
 
 import (
 	"fmt"
-
 	"gitoma-bench-rung-1/store"
 )
 
@@ -16,14 +15,13 @@ func New(users *store.UserStore) *Server {
 
 // Greet returns a user-specific greeting.
 //
-// NOTE (reader): this function still uses the OLD 1-return-value call
-// style for store.UserStore.Get. That API now returns (string, bool);
-// the compiler flags this file as a result. Fixing requires:
-//  1. Reading store/store.go to learn the new signature + the meaning
-//     of the bool.
-//  2. Updating this function to handle both return values. When the
-//     user is not found, the greeting is "Hello, stranger!".
+// NOTE (reader): this function now correctly handles the two return values
+// from s.users.Get(id) (name, found).
+// If the user is not found (found is false), the greeting is "Hello, stranger!".
 func (s *Server) Greet(id int) string {
-	name := s.users.Get(id)
+	name, found := s.users.Get(id)
+	if !found {
+		return "Hello, stranger!"
+	}
 	return fmt.Sprintf("Hello, %s!", name)
 }
