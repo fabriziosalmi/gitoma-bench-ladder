@@ -1,0 +1,20 @@
+[
+
+[lints]
+
+# Enable all standard clippy lints for better code quality
+# You can customize this section to enable/disable specific lints.
+
+[lints.clippy]
+# Enable common warnings and suggestions
+warnings = true
+
+# Example of enabling specific lints (uncomment to enable):
+# unused_variables = true
+# doc_comments = true
+# panic_braces = true
+
+[targets]
+# Define targets if you want to apply specific configurations per target (e.g., for different compilation profiles)
+# [targets.all]
+# warnings = true
