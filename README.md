@@ -50,10 +50,34 @@ To run tests or use the toolchain, install the required dependencies:
 pip install -r requirements-test.txt
 ```
 
-## Scoring
+## Usage Examples for calc.py
 
-From this repo's `main` branch:
+This section demonstrates how to use the functions available in `calc.py`.
+
+### Basic Average Calculation
+
+To calculate the average of a list of numbers, use the `average` function:
 
 ```python
-bench/bench_rung.py --rung 0 --pr-url <url-printed-by-gitoma>
+from calc import average
+
+numbers = [1, 2, 3, 4, 5]
+result = average(numbers)
+print(f"The average is: {result}")  # Output: The average is: 3.0
+
+empty_list = []
+# This will raise a ValueError if not handled internally by the function
+# average(empty_list) 
+```
+
+### Calculating Average for a Single Number
+
+Use `average` with a single-element list:
+
+```python
+from calc import average
+
+single_number = [42]
+result = average(single_number)
+print(f"The average is: {result}")  # Output: The average is: 42
 ```
