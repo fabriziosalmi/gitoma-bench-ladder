@@ -72,13 +72,11 @@ git clone <repository_url>
    ```
 
 2. Install dependencies:
-   ```bash
-pip install -r requirements.txt  # Assuming a requirements file exists, or list them manually
+   ```pip install -r requirements.txt  # Assuming a requirements file exists, or list them manually
    ```
 
 3. Run tests:
-   ```bash
-   python -m pytest -q
+   ```python -m pytest -q
    ```
 
 ## Documentation and Guidance
@@ -111,7 +109,7 @@ pip install ruff && ruff check .
 
 To run the full benchmarking process against this rung:
 
-```bash
+```
 gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
   --base rung-3 --reset -y --no-self-review --no-ci-watch
 ```
