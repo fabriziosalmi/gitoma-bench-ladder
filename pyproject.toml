@@ -1,11 +1,2 @@
-[tool.coverage]
-run = "pytest --cov=bench bench/bench_rung.py"
-
-[tool.mypy]
-files = [
-    "bench/bench_rung.py",
-    "rung-0/calc.py",
-]
-ignore_missing_imports = true
-strict = true
-show_error_codes = true
+[tool.ruff]
+line-length = 88
