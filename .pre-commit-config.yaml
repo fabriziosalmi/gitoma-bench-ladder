@@ -1,0 +1,10 @@
+repos:
+-   repo: https://github.com/golang/go
+    rev: master
+    hooks:
+    -   id: golang-ci
+        name: golangCI
+        entry: golangci
+        language: go
+        args:
+          - ""

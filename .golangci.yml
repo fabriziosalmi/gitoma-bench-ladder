@@ -1,0 +1,11 @@
+linters:
+  - gosec
+  - staticcheck
+  - errcheck
+  - stylelint
+
+# Custom rules for gitoma project
+
+overrides:
+  # Example: enforce specific formatting or error handling patterns if needed
+  # - path/to/specific/rule: { severity: error, message: "Custom rule description" }
