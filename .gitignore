@@ -1,0 +1,22 @@
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Byte-compiled / optimized / compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+
+# IDE and editor files
+.vscode/
+*.swp
+
+# Logs and temporary files
+*.log
+tmp/
