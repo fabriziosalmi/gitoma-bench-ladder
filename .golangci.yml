@@ -1,0 +1,9 @@
+linters:
+  - gosec
+  - staticcheck
+  - errcheck
+
+issue_linter:
+  # Enforce strict error checking and style adherence
+  - go vet
+  - stylelint
