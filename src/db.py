@@ -19,7 +19,7 @@ def find_user_by_name(conn: sqlite3.Connection, name: str) -> Optional[tuple]:
     # FIX: Replaced f-string interpolation with parameterized query.
     cur = conn.execute(
         "SELECT id, name FROM users WHERE name = ?",
-        (name,),
+        (name),
     )
     return cur.fetchone()
 
