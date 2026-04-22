@@ -1,0 +1,7 @@
+repos:
+- repo: golang
+  rev: v1.21
+  hooks:
+    - id: golangci
+      name: golangCI
+      wantErr: false
