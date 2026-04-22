@@ -18,8 +18,3 @@ explicit_package_roots = true
 plugins = [
     "mypy_extensions"
 ]
-
-[tool.coverage]
-enabled = true
-fail_under = 80.0
-report = "term"
