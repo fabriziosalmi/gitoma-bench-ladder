@@ -1,0 +1,21 @@
+go.mod
+
+# Build artifacts
+*.exe
+
+# Compiled binaries and temporary files
+bin/
+
+# Go build cache
+/tmp/go
+
+# IDE and editor files
+.idea/
+*.iml
+
+# Dependency directories
+vendor/
+
+# Logs and temporary files
+*.log
+tmp/
