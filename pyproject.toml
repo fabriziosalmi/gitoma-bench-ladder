@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=61"]
-build-backend = "setuptools.build_meta"
+build_backend = "setuptools.build_meta"
 
 [project]
 name = "gitoma-bench-rung-3"
@@ -12,9 +12,11 @@ requires-python = ">=3.10"
 pythonpath = [""]
 testpaths = ["tests"]
 
-[coverage]
-run = "N"
-branch = "auto"
+[tool.mypy]
+ignore_missing_imports = true
+strict = true
+warn_redundant_casts = true
+show_error_codes = true
 
 [tool.ruff]
 line-length = 88
