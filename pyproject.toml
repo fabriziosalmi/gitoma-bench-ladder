@@ -30,3 +30,6 @@ ignore_missing_imports = true
 warn_redundant_casts = true
 strict = true
 explicit_package_level_assignment = true
+
+[project.dependencies]
+pytest = "*"
