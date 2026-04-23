@@ -11,3 +11,13 @@ requires-python = ">=3.10"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.mypy.options]
+immutable-values = true
+ignore-missing-imports = true
+show-traceback = true
+strict = true
+
+[tool.ruff.options]
+extend-select = ["E","F","W"]
+ignore = ["E203", "E501"]
