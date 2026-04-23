@@ -1,0 +1,6 @@
+[coverage]
+source = src
+omit =
+    src/__init__.py
+    tests/*
+reporters = html
