@@ -1,0 +1,29 @@
+## Python
+__pycache__/
+*.pyc
+
+## Virtual environment
+venv/
+env/
+
+## OS generated files
+.DS_Store
+Thumbs.db
+
+## Build files
+dist/
+build/
+
+## IDE files
+*.swo
+*.swp
+*.py_history
+
+## Logs
+logs/
+
+## Coverage
+coverage/
+
+## Test files
+test-results/
