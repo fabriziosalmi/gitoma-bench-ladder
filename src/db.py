@@ -9,6 +9,7 @@ def find_user_by_name(conn, name):
     cursor.execute(query, (name,))
     return cursor.fetchall()
 
+
 def get_conn():
     return sqlite3.connect(':memory:')
 
