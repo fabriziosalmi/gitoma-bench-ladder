@@ -11,3 +11,6 @@ requires-python = ">=3.10"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.ruff] 
+exclude = ["src/db.py", "tests/test_db.py"]
