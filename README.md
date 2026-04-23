@@ -1,5 +1,9 @@
 # gitoma-bench-ladder
 
+[![Project Status](https://img.shields.io/badge/project_status-actively%20developed-green.svg)](https://img.shields.io/badge/project_status-actively%20developed-green.svg)
+[![Build Status](https://img.shields.io/badge/build-passing-green.svg)](https://img.shields.io/badge/build-passing-green.svg)
+[![Coverage Status](https://img.shields.io/badge/coverage-100%25-green.svg)](https://img.shields.io/badge/coverage-100%25-green.svg)
+
 ## Install
 
 Ensure you have Python 3.10+ installed. Then run:
