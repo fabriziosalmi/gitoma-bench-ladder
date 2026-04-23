@@ -1,0 +1,34 @@
+{
+  "rung": 3,
+  "pr_url": "https://github.com/fabriziosalmi/gitoma-bench-ladder/pull/20",
+  "pr_number": 20,
+  "base_branch": "rung-3",
+  "touched_files": [
+    ".coveragerc",
+    ".gitignore",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "docs/index.md",
+    "docs/mkdocs.yml",
+    "pyproject.toml",
+    "src/db.py"
+  ],
+  "expected_files": [
+    "src/db.py"
+  ],
+  "patch_coverage": 1.0,
+  "test_health": "fail",
+  "test_detail": {
+    "framework": "pytest",
+    "exit": 4,
+    "tail": "ERROR: /private/var/folders/k0/cs9wwly107l9c39w8rxrnny80000gn/T/bench-rung-3-xytszfnw/pyproject.toml: Invalid value (at line 19, column 10)\n\n"
+  },
+  "loc_added": 209,
+  "loc_modified": 89,
+  "omega": 2.348,
+  "gamma_pre": 0,
+  "gamma_post": -1,
+  "ts": "2026-04-23T09:01:02+00:00"
+}
