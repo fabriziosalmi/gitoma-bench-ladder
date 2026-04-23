@@ -1,0 +1,7 @@
+site_name: gitoma-bench-ladder Documentation
+nav:
+  - Home: index.md
+  - API Reference: /api/
+theme: readthedocs
+extra_css:
+  - style.css
