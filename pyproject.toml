@@ -11,3 +11,9 @@ requires-python = ">=3.10"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.mypy]
+check_untyped_calls = true
+ignore_missing_imports = true
+show_trailing_comma = true
+warn_unused_configs = true
