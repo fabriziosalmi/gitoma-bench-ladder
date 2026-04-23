@@ -1,15 +1,10 @@
-# Getting Started with gitoma-bench-ladder
-
-This guide will help you get started with the gitoma-bench-ladder project.
+# Getting Started with Gitoma Bench Ladder
 
 ## Prerequisites
-
-- Python 3.8 or higher
-- Git
-- A code editor (e.g., VS Code, PyCharm)
+- Python 3.8+
+- pip
 
 ## Installation
-
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/gitoma-bench-ladder.git
@@ -18,15 +13,13 @@ This guide will help you get started with the gitoma-bench-ladder project.
    ```bash
    cd gitoma-bench-ladder
    ```
-3. Install the project dependencies:
+3. Install the dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
 ## Running the Project
-
-To run the project, simply execute the following command:
-
+To run the project, simply execute the main script:
 ```bash
-python main.py
+python src/main.py
 ```
