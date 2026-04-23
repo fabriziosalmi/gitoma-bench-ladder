@@ -14,12 +14,12 @@ def get_conn() -> sqlite3.Connection:
 
 def init_schema(conn: sqlite3.Connection) -> None:
     conn.execute(
-        """>
+        "">
         CREATE TABLE IF NOT EXISTS users (
             id   INTEGER PRIMARY KEY,
             name TEXT NOT NULL UNIQUE
         )
-        """
+        ""
     )
 
 
