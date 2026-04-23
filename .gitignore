@@ -1,0 +1,28 @@
+## Ignore files
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.prof
+
+# Build
+build/
+
+# Tests
+tests/
+
+# Coverage
+coverage/
+
+# IDEs and editors
+*.swp
+*.swo
+*.swn
+*.py_history
+
+# OS generated files
+desktop.ini
+.DS_Store
+Thumbs.db
