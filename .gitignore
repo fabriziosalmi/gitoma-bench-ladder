@@ -1,0 +1,26 @@
+## Python
+__pycache__/
+*.pyc
+
+## Virtual environment
+venv/
+env/
+
+## OS generated files
+*.swp
+*.swo
+*.swn
+
+## Build files
+dist/
+build/
+
+## Documentation
+docs/_output/
+
+## Logs
+*.log
+
+## IDE files
+*.idea
+*.vscode
