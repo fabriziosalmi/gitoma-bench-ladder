@@ -1,10 +1,14 @@
 # gitoma-bench-ladder
 
+[![Build Status](https://github.com/fabriziosalmi/gitoma-bench-ladder/actions/workflows/test.yml/badge.svg)](https://github.com/fabriziosalmi/gitoma-bench-ladder/actions/workflows/test.yml)
+[![License](https://badgen.net/maven/license/mvnrepository.com/com.example.gitoma-bench-ladder/0.1.0)](https://github.com/fabriziosalmi/gitoma-bench-ladder/blob/main/LICENSE)
+[![Python Version](https://badgen.net/badge/python/3.8/blue)](https://www.python.org/downloads/release/python-380/)
+
 ## Overview
 This repository contains a benchmark for testing SQL injection vulnerabilities in Python applications using SQLite. It demonstrates how to identify and fix common security issues in database queries.
 
 ## Install
-To run the benchmarks, you'll need Python 3.8+ installed.
+To run the benchmarks, you'll need Python 8+ installed.
 
 1. Clone the repository:
 ```bash
