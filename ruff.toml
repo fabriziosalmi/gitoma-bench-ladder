@@ -1,0 +1,16 @@
+[tool.ruff]
+
+# Enable all rules by default
+rules = ["all"]
+
+# Disable specific rules if needed (example)
+# disable = ["F401", "S603"]
+
+# Set the maximum line length (default is 79)
+line-length = 120
+
+# Set the minimum Python version (default is 3.7)
+min-python-version = "3.10"
+
+# Enable per-file configuration (optional)
+per-file-configuration = true
