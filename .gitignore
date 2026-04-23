@@ -29,3 +29,17 @@ vendor/
 # Environment variables
 .env
 .env.local
+
+# Test and build output
+tests/__pycache__/
+build/
+dist/
+coverage/
+logs/
+
+# IDE and editor files
+*.swo
+*.swp
+*.pydevproject
+*.idea/
+.vscode/
