@@ -18,3 +18,8 @@ ignore = ["F841"]
 
 [tool.ruff.format]
 line-length = 79
+
+[tool.mypy.options]
+immutable-types = true
+ignore-missing-imports = true
+show-traceback = true
