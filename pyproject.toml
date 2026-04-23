@@ -11,3 +11,8 @@ requires-python = ">=3.10"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[coverage]
+run = "N"
+branch = "auto"
+exclude = ["tests", "*/migrations"]
