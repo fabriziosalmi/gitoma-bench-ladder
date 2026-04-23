@@ -31,7 +31,6 @@ cur = conn.execute(
 Stdlib `sqlite3` binds the parameter — the input is never parsed
 as SQL. This is the canonical fix; any equivalent (named binding,
 prepared statement) is fine as long as the f-string is removed.
-
 The other functions in `src/db.py` (`get_conn`, `init + init_schema, `seed`) are correct. If gitoma touches them, that's a regression.
 
 ## Usage Instructions
@@ -64,6 +63,29 @@ python -m pytest -q
 
 Expected (pre-fix): 2 fail (the two injection tests), 2 pass.
 Expected (post-fix): 4 pass.
+
+## Contributing Guidelines
+
+### How to Contribute
+
+1. Fork the repository on GitHub.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and ensure they are well-documented.
+4. Run the tests to verify that your changes haven't broken anything.
+5. Commit your changes and push them to your branch.
+6. Open a pull request from your branch to the main repository.
+
+### Code of Conduct
+
+Please follow the standard code of conduct for open-source projects. Be respectful, collaborative, and helpful.
+
+### Testing
+
+All changes must be accompanied by tests. Ensure that your tests cover edge cases and verify the correctness of your implementation.
+
+### Documentation
+
+Update the README.md and any other relevant documentation to reflect your changes. This helps maintain clarity for future contributors.
 
 ## Running gitoma on this rung
 
