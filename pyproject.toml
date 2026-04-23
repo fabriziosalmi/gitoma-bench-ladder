@@ -12,6 +12,13 @@ requires-python = ">=3.10"
 pythonpath = ["."]
 testpaths = ["tests"]
 
-[tool.ruff] 
+[tool.ruff]
 select = "E, F, W, C, B, S, T"
 ignore = ["F841"]
+
+[tool.mypy]
+show-traceback = true
+ignore-missing-imports = true
+check-untyped-defs = false
+warn-unused-ignores = true
+ignore-missing-runtime-typing = true
