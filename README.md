@@ -45,7 +45,8 @@ git checkout rung-3
    ```bash
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
+  --base rung-3 --reset -y --no-self-review --no-ci-watch
 ```
 3. Run the tests:
    ```bash
@@ -80,12 +81,6 @@ Scoring:
 python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
 
-## Install
+## License
 
-git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
-git checkout rung-3
-cd gitoma-bench-ladder
-python -m venv venv
-source venv/bin/activate
-gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
-  --base rung-3 --reset -y --no-self-review --no-ci-watch
+This project is licensed under the [MIT License](LICENSE) or [Apache-2.0 License](LICENSE). Please choose one and add it to this repository.
