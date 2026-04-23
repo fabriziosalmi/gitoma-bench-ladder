@@ -24,7 +24,7 @@ The fix involves replacing the f-string interpolation with a parameterised query
 ```python
 cur = conn.execute(
     "SELECT id, name FROM users WHERE name = ?",
-    (name,),
+    (name),
 )
 ```
 
