@@ -10,14 +10,14 @@ and the worker should reach for the parameterised-query idiom.
 
 ## The injected bug
 
-`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`.
+src/db.py:53 — f"SELECT id, name FROM users WHERE name = '{name}'".
 F-string interpolation lets the caller close the SQL literal and
 inject arbitrary statements. The two adversarial tests in
-`tests/test_db.py` make this concrete:
+tests/test_db.py make this concrete:
 
-- `test_no_sql_injection`: name = `"' OR '1'='1"` — bypasses WHERE,
+- `test_no_sql_injection`: name = "' OR '1'='1" — bypasses WHERE,
   returns all 3 users pre-fix.
-- `test_no_sql_injection_via_comment`: name = `"alice'; --"` —
+- `test_no_sql_p injection via comment`: name = "alice'; --" —
   truncates the query via SQL line comment.
 
 ## The fix
@@ -32,14 +32,14 @@ cur = conn.execute(
 Stdlib `sqlite3` binds the parameter — the input is never parsed
 as SQL. This is the canonical fix; any equivalent (named binding,
 prepared statement) is fine as long as the f-string is removed.
-
-The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`)
-are correct. If gitoma touches them, that's a regression.
+The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`) are correct. If gitoma touches them, that's a regression.
 
 ## Running locally
 
 ```
 cd rung-3
+git init
+git add .
 python -m pytest -q
 ```
 
@@ -60,3 +60,14 @@ Scoring:
 ```
 python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
+
+## Install
+
+git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
+git checkout rung-3
+cd gitoma-bench-ladder
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
+  --base rung-3 --reset -y --no-self-review --no-ci-watch
