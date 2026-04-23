@@ -1,0 +1,29 @@
+{
+  "rung": 3,
+  "pr_url": "https://github.com/fabriziosalmi/gitoma-bench-ladder/pull/19",
+  "pr_number": 19,
+  "base_branch": "rung-3",
+  "touched_files": [
+    ".gitignore",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "pyproject.toml"
+  ],
+  "expected_files": [
+    "src/db.py"
+  ],
+  "patch_coverage": 0.0,
+  "test_health": "fail",
+  "test_detail": {
+    "framework": "pytest",
+    "exit": 1,
+    "tail": "on succeeded: leaked 1 row(s).\nE       assert [{'id': 1, 'name': 'alice'}] == []\nE         \nE         Left contains one more item: {'id': 1, 'name': 'alice'}\nE         Use -v to get more diff\n\ntests/test_db.py:44: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_db.py::test_no_sql_injection - AssertionError: SQL injectio...\nFAILED tests/test_db.py::test_no_sql_injection_via_comment - AssertionError: ...\n2 failed, 2 passed in 0.03s\n"
+  },
+  "loc_added": 165,
+  "loc_modified": 34,
+  "omega": 4.853,
+  "gamma_pre": 0,
+  "gamma_post": 0,
+  "ts": "2026-04-23T07:47:27+00:00"
+}
