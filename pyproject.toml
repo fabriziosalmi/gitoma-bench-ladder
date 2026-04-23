@@ -14,3 +14,9 @@ testpaths = ["tests"]
 
 [tool.ruff] 
 exclude = ["src/db.py", "tests/test_db.py"]
+
+[tool.coverage.config]
+source = src
+branch = True
+include = src/
+exclude = tests/

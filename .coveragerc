@@ -1,0 +1,5 @@
+[coverage]
+source = src
+branch = True
+include = src/
+exclude = tests/
