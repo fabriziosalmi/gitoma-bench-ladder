@@ -40,5 +40,10 @@ def find_user_by_name(conn: sqlite3.Connection, name: str) -> list[dict]:
     use a parameterised query — sqlite3 supports ``?`` placeholders
     natively.
     """
-    cur = conn.execute("SELECT id, name FROM users WHERE name = ?", (name,))
-    return [dict(row) for row in cur]
+    try:
+        cur = conn.execute("SELECT id, name FROM users WHERE name = ?", (name,))
+        return [dict(row) for row in cur]
+    except sqlite3.Error as e:
+        # Log the error (but don't let it crash the application)
+        print(f"Database error: {e}")
+        return []
