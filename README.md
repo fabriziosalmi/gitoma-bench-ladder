@@ -2,39 +2,28 @@
 
 ## What this rung tests
 
-Semantic security bug. The file compiles fine (no Build Integrity
-fail), but a single function leaks the entire users table to anyone
-who supplies a malicious name. This is the canonical SQL-injection
-pattern; gitoma's devil should flag it as a `¬S` (anti-hope) blocker
-and the worker should reach for the parameterised-query idiom.
+Semantic security bug. The file compiles fine (no Build Integrity fail), but a single function leaks the entire users table to anyone who supplies a malicious name. This is the canonical SQL-injection pattern; gitoma's devil should flag it as a `¬S` (anti-hope) blocker and the worker should reach for the parameterised-query idiom.
 
 ## The injected bug
 
-`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`.
-F-string interpolation lets the caller close the SQL literal and
-inject arbitrary statements. The two adversarial tests in
-`tests/test_db.py` make this concrete:
+`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`. 
+F-string interpolation lets the caller close the SQL literal and inject arbitrary statements. The two adversarial tests in `tests/test_db.py` make this concrete:
 
-- `test_no_sql_injection`: name = `"' OR '1'='1"` — bypasses WHERE,
-  returns all 3 users pre-fix.
-- `test_no_sql_injection_via_comment`: name = `"alice'; --"` —
-  truncates the query via SQL line comment.
+- `test_no_sql_injection`: name = `"' OR '1'='1"` — bypasses WHERE, returns all 3 users pre-fix.
+- `test_no_sql_injection_via_comment`: name = `"alice'; --"` — truncates the query via SQL line comment.
 
 ## The fix
 
 ```python
 cur = conn.execute(
     "SELECT id, name FROM users WHERE name = ?",
-    (name,),
+    (name),
 )
 ```
 
-Stdlib `sqlite3` binds the parameter — the input is never parsed
-as SQL. This is the canonical fix; any equivalent (named binding,
-prepared statement) is fine as long as the f-string is removed.
+Stdlib `sqlite3` binds the parameter — the input is never parsed as SQL. This is the canonical fix; any equivalent (named binding, prepared statement) is fine as long as the f-string is removed.
 
-The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`)
-are correct. If gitoma touches them, that's a regression.
+The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`) are correct. If gitoma touches them, that's a regression.
 
 ## Running locally
 
@@ -57,6 +46,9 @@ gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
 
 Scoring:
 
+```python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
-python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
-```
+
+## Documentation
+
+Future documentation and setup instructions will be placed in a new `docs/` directory.
