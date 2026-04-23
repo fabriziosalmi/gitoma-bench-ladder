@@ -1,0 +1,10 @@
+{
+  "name": "gitoma-bench-rung-4",
+  "version": "0.1.0",
+  "description": "rung-4 of the gitoma bench ladder — JavaScript XSS via raw template interpolation.",
+  "main": "src/render.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

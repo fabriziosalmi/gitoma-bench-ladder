@@ -1,0 +1,24 @@
+{
+  "rung": 4,
+  "name": "JavaScript: XSS via raw template-literal interpolation",
+  "language": "javascript",
+  "bugs_injected": [
+    {
+      "id": "R4-001",
+      "file": "src/render.js",
+      "line_hint": 19,
+      "severity": "blocker",
+      "axiom_expected": "¬S",
+      "category": "xss_via_unescaped_html",
+      "description": "renderGreeting builds HTML by interpolating the user-supplied name directly into a template literal: `<div>Hello, ${name}!</div>`. A name containing `<script>alert(1)</script>` produces HTML with a live <script> element. Fix: HTML-escape the name (manual replace of <, >, &, \", ') before interpolation. The other characters of render.js are correct."
+    }
+  ],
+  "expected_patches_must_touch": ["src/render.js"],
+  "expected_tests_pass": [
+    "normal name renders inside a div",
+    "ampersand in name is escaped to entity",
+    "script tag in name is rendered as text, NOT as a script element",
+    "attribute-context payload is also neutralised"
+  ],
+  "notes": "Second semantic-security rung (after rung-3 SQL injection). The file is syntactically valid JavaScript (no compile error), so BuildAnalyzer will pass; TestRunnerAnalyzer should report the XSS test failures as the planner's priority-1 signal — that is the path Yesterday's bug-C fix is meant to validate. The devil should additionally flag this as ¬S blocker on the diff. Tests use node:test (stdlib) so no npm install required."
+}
