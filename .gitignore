@@ -1,4 +1,4 @@
-## Python
+# Python
 __pycache__/
 *.pyc
 
@@ -27,3 +27,5 @@ coverage/
 
 ## Test files
 test-results/
+
+.env
