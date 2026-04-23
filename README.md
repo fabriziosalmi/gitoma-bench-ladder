@@ -14,7 +14,7 @@ and the worker should reach for the parameterised-query idiom.
 inject arbitrary statements. The two adversarial tests in
 `tests/test_db.py` make this concrete:
 
-- `test_no_sql_injection`: name = `'" OR '1'='1"` — bypasses WHERE,
+- `test_no_sql_injection`: name = `"" OR '1'='1"` — bypasses WHERE,
   returns all 3 users pre-fix.
 - `test_no_sql/IP injection via comment`: name = "alice'; --" —
   truncates the query via SQL line comment.
@@ -32,7 +32,29 @@ Stdlib `sqlite3` binds the parameter — the input is never parsed
 as SQL. This is the canonical fix; any equivalent (named binding,
 prepared statement) is fine as long as the f-string is removed.
 
-The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`) are correct. If gitoma touches them, that's a regression.
+The other functions in `src/db.py` (`get_conn`, `init + init_schema`, `seed`) are correct. If gitoma touches them, that's a regression.
+
+## Usage Examples
+
+### Example 1: Find user by name
+
+```python
+from src.db import get_conn, find_user_by_name
+
+conn = get_conn()
+user = find_user_by_name(conn, 'alice')
+print(user)
+```
+
+### Example 2: Seed database with sample data
+
+```python
+from src.db import get_conn, init_schema, seed
+
+conn = get_conn()
+init_schema(conn)
+seed(conn)
+```
 
 ## Installation Instructions
 
@@ -42,27 +64,27 @@ The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`) are corre
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
-   ```
+git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
+```
 2. Navigate to the project directory:
    ```bash
-   cd gitoma-bench-ladder
-   ```
+cd gitoma-bench-ladder
+```
 3. Install dependencies:
    ```bash
-   pip install -r requirements.txt
-   ```
+pip install -r requirements.txt
+```
 4. Run the tests:
    ```bash
-   python -m pytest -q
-   ```
+python -m pytest -q
+```
 
 ## Running locally
 
-```
+```bash
 cd rung-3
 python -m pytest -q
-``` 
+```
 
 Expected (pre-fix): 2 fail (the two injection tests), 2 pass.
 Expected (post-fix): 4 pass.
@@ -71,13 +93,13 @@ Expected (post-fix): 4 pass.
 
 From minimac:
 
-```
+```bash
 gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
   --base rung-3 --reset -y --no-self-review --no-ci-watch
 ``` 
 
 Scoring:
 
-```
+```bash
 python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
