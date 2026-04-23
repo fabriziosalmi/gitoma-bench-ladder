@@ -42,19 +42,19 @@ The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`) are corre
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
+git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd gitoma-bench-ladder
+cd gitoma-bench-ladder
    ```
 3. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+pip install -r requirements.txt
    ```
 4. Run the tests:
    ```bash
-   python -m pytest -q
+python -m pytest -q
    ```
 
 ## Running locally
