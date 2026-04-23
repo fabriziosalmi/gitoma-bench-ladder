@@ -10,8 +10,14 @@ requires-python = ">=3.10"
 
 [tool.ruff.lint]
 select = ["E","F","W"]
-ignore = ["E203", "E501", "W503"]
+ingore = ["E203", "E501", "W503"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.mypy.options]
+immutable-types = true
+ignore-missing-imports = true
+show-traceback = true
+strict = true
