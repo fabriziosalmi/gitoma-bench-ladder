@@ -1,0 +1,23 @@
+## Python
+__pycache__/
+*.pyc
+
+## Virtual environment
+venv/
+env/
+
+## OS generated files
+.DS_Store
+Thumbs.db
+
+## Build and test files
+*.log
+*.coverage
+htmlcov/
+
+## User-specific files
+*.swp
+*~
+
+## Ignore all .json files in the root directory
+golden.json
