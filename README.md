@@ -14,7 +14,7 @@ src/db.py:53 — `f"SELECT id, name FROM users WHERE name = '{name}'"`. F-string
 inject arbitrary statements. The two adversarial tests in
 `tests/test_db.py` make this concrete:
 
-- `test_no_sql_injection`: name = `'" OR '1'='1"` — bypasses WHERE,
+- `test_no_sql_injection`: name = `"" OR '1'='1"` — bypasses WHERE,
   returns all 3 users pre-fix.
 - `test_no_sql_hack_via_comment`: name = "alice'; --" —
   truncates the query via SQL line comment.
@@ -32,7 +32,7 @@ Stdlib `sqlite3` binds the parameter — the input is never parsed
 as SQL. This is the canonical fix; any equivalent (named binding,
 prepared statement) is fine as long as the f-string is removed.
 
-The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`) are correct. If gitoma touches them, that's a regression.
+The other functions in `src/db.py` (`get_conn`, `init + init_schema`, `seed`) are correct. If gitoma touches them, that's a regression.
 
 ## Installation
 
@@ -45,8 +45,17 @@ pip install -e .
 
 ```
 cd rung-3
-python -m pytest -q
+gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
+  --base rung-3 --reset -y --no-self-review --no-ci-watch
 ``` 
+
+## Usage Example
+
+To run the application:
+1. Clone the repository: `git clone https://github.com/fabriziosalmi/gitoma-bench-ladder`
+2. Navigate to the rung-3 directory: `cd gitoma-bench-ladder/rung-3`
+3. Install dependencies: `pip install -e .`
+4. Run the tests: `python -m pytest -q`
 
 Expected (pre-fix): 2 fail (the two injection tests), 2 pass.
 Expected (post-fix): 4 pass.
@@ -54,14 +63,12 @@ Expected (post-fix): 4 pass.
 ## Running gitoma on this rung
 
 From minimac:
-
 ```
 gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
   --base rung-3 --reset -y --no-self-review --no-ci-watch
 ``` 
 
 Scoring:
-
 ```
 python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
