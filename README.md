@@ -1,5 +1,9 @@
 # gitoma-bench-ladder
 
+[![Build Status](https://github.com/your-username/gitoma-bench-ladder/actions/workflows/build.yml/badge.svg)](https://github.com/your-username/gitoma-bench-ladder/actions/workflows/build.yml)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![codecov](https://codecov.io/gh/your-username/gitoma-bench-ladder/.svg?token=...)](https://codecov.io/gh/your-username/gitoma-bench-ladder)
+
 A project to ... (add relevant details here)
 
 ## Getting Started
