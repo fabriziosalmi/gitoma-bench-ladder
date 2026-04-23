@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/your-username/gitoma-bench-ladder/.svg?token=...)](https://codecov.io/gh/your-username/gitoma-bench-ladder)
 
-A project to ... (add relevant details here)
+A project to perform benchmarking and analysis on git repositories, comparing performance across different branches and configurations.
 
 ## Getting Started
 
