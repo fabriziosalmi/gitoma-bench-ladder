@@ -1,0 +1,45 @@
+## Python
+__pycache__/
+*.pyc
+
+## Virtual Environment
+venv/
+env/
+
+## OS generated files
+.DS_Store
+Thumbs.db
+
+## User-specific
+*.swp
+*~
+
+# Build files
+*.build
+*.coverage
+*.egg-info/
+
+# Dependency directories
+dist/
+lib/
+node_modules/
+packages/
+vendor/
+
+# Environment variables
+.env
+.env.local
+
+# Test and build output
+tests/__pycache__/
+build/
+dist/
+coverage/
+logs/
+
+# IDE and editor files
+*.swo
+*.swp
+*.pydevproject
+*.idea/
+.vscode/
