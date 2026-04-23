@@ -8,6 +8,9 @@
     "test": "node --test",
     "lint": "eslint ."
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "devDependencies": {
     "eslint": "^8.0.0"
   },
