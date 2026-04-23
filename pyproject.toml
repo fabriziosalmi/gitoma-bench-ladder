@@ -11,3 +11,12 @@ requires-python = ">=3.10"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.ruff]
+select = ["A", "B", "C", "D", "E", "F", "I"]
+ignore = ["F841"]
+
+[tool.mypy]
+check_untyped_names = true
+ignore_missing_imports = true
+strict = true
