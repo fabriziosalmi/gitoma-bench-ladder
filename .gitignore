@@ -1,0 +1,27 @@
+## Python
+__pycache__/
+*.pyc
+*.pyo
+*.prof
+
+## Build
+build/
+
+## Tests
+coverage/
+
+## IDEs and Editors
+*.swp
+*.swo
+*.swn
+
+## OS generated files
+.DS_Store
+Thumbs.db
+
+## Logs and caches
+db.log
+*.log
+
+## Environment variables
+.env

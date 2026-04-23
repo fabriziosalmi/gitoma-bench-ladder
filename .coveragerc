@@ -1,0 +1,9 @@
+[run]
+source = src
+omit =
+    tests/*
+    src/__init__.py
+    src/db.py
+
+[report]
+formats = html
