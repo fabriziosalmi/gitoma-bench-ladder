@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+
+## Virtual environment
+venv/
+env/
+
+## OS generated files
+.DS_Store
+Thumbs.db
+
+## Build and test files
+*.egg-info/
+*.pytest_cache/
+
+## User-specific files
+*.swp
+*.swo
+*.swn
+
+## Logs
+logs/
+
+## Coverage
+coverage/
+
+## IDE files
+*.idea
+*.vscode
+
+.env

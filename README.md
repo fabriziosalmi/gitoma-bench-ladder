@@ -10,14 +10,13 @@ and the worker should reach for the parameterised-query idiom.
 
 ## The injected bug
 
-`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`.
-F-string interpolation lets the caller close the SQL literal and
+`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`. F-string interpolation lets the caller close the SQL literal and
 inject arbitrary statements. The two adversarial tests in
 `tests/test_db.py` make this concrete:
 
-- `test_no_sql_injection`: name = `"' OR '1'='1"` — bypasses WHERE,
+- `test_no_sql_injection`: name = `"" OR '1'='1"` — bypasses WHERE,
   returns all 3 users pre-fix.
-- `test_no_sql_injection_via_comment`: name = `"alice'; --"` —
+- `test_no_sql_L injection via comment`: name = "alice'; --" —
   truncates the query via SQL line comment.
 
 ## The fix
@@ -32,31 +31,82 @@ cur = conn.execute(
 Stdlib `sqlite3` binds the parameter — the input is never parsed
 as SQL. This is the canonical fix; any equivalent (named binding,
 prepared statement) is fine as long as the f-string is removed.
+The other functions in `src/db.py` (`get_conn`, `init + init_schema, `seed`) are correct. If gitoma touches them, that's a regression.
 
-The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`)
-are correct. If gitoma touches them, that's a regression.
+## Usage Instructions
 
-## Running locally
+### Installation
 
-```
+1. Clone the repository:
+   ```bash
+git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+cd gitoma-bench-ladder
+   ```
+3. Install dependencies:
+   ```bash
+pip install -r requirements.txt
+   ```
+4. Run the tests:
+   ```bash
+python -m pytest -q
+   ```
+
+### Running locally
+
+```bash
 cd rung-3
 python -m pytest -q
-```
+``` 
 
 Expected (pre-fix): 2 fail (the two injection tests), 2 pass.
 Expected (post-fix): 4 pass.
+
+## Contributing Guidelines
+
+### How to Contribute
+
+1. Fork the repository on GitHub.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and ensure they are well-documented.
+4. Run the tests to verify that your changes haven't broken anything.
+5. Commit your changes and push them to your branch.
+6. Open a pull request from your branch to the main repository.
+
+### Code of Conduct
+
+Please follow the standard code of conduct for open-source projects. Be respectful, collaborative, and helpful.
+
+### Testing
+
+All changes must be accompanied by tests. Ensure that your tests cover edge cases and verify the correctness of your implementation.
+
+### Documentation
+
+Update the README.md and any other relevant documentation to reflect your changes. This helps maintain clarity for future contributors.
 
 ## Running gitoma on this rung
 
 From minimac:
 
-```
+```bash
 gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
   --base rung-3 --reset -y --no-self-review --no-ci-watch
-```
+``` 
 
 Scoring:
 
-```
+```bash
 python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
-```
+``` 
+
+## License
+
+This project is licensed under the MIT License - see the
+... (truncated)
+
+## Dependabot Configuration
+
+Dependabot is enabled to automatically update dependencies. This ensures that the project always uses the latest versions of its dependencies, improving security and performance.
