@@ -17,3 +17,7 @@ immutable-values = true
 ignore-missing-imports = true
 show-traceback = true
 strict = true
+
+[tool.ruff.options]
+extend-select = ["E","F","W"]
+ignore = ["E203", "E501"]
