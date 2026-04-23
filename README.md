@@ -39,19 +39,19 @@ The other functions in `src/db.py` (`get_conn`, `init + init_schema, `seed`) are
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
+git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd gitoma-bench-ladder
+cd gitoma-bench-ladder
    ```
 3. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+pip install -r requirements.txt
    ```
 4. Run the tests:
    ```bash
-   python -m pytest -q
+python -m pytest -q
    ```
 
 ### Running locally
@@ -100,4 +100,8 @@ Scoring:
 
 ```bash
 python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
-```
+``` 
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
