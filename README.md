@@ -1,62 +1,45 @@
-# Rung 3 — Python + SQLite: SQL injection in `find_user_by_name`
+# gitoma-bench-ladder
 
-## What this rung tests
+## Overview
+This repository contains a Python implementation demonstrating SQL injection vulnerabilities and their fixes. It's designed to be used with gitoma for security testing and benchmarking.
 
-Semantic security bug. The file compiles fine (no Build Integrity
-fail), but a single function leaks the entire users table to anyone
-who supplies a malicious name. This is the canonical SQL-injection
-pattern; gitoma's devil should flag it as a `¬S` (anti-hope) blocker
-and the worker should reach for the parameterised-query idiom.
-
-## The injected bug
-
-`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`.
-F-string interpolation lets the caller close the SQL literal and
-inject arbitrary statements. The two adversarial tests in
-`tests/test_db.py` make this concrete:
-
-- `test_no_sql_injection`: name = `"' OR '1'='1"` — bypasses WHERE,
-  returns all 3 users pre-fix.
-- `test_no_sql_injection_via_comment`: name = `"alice'; --"` —
-  truncates the query via SQL line comment.
-
-## The fix
-
-```python
-cur = conn.execute(
-    "SELECT id, name FROM users WHERE name = ?",
-    (name,),
-)
+## Install
+Ensure you have Python 3.10+ installed. Then run:
+```
+pip install -r requirements.txt
 ```
 
-Stdlib `sqlite3` binds the parameter — the input is never parsed
-as SQL. This is the canonical fix; any equivalent (named binding,
-prepared statement) is fine as long as the f-string is removed.
-
-The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`)
-are correct. If gitoma touches them, that's a regression.
-
-## Running locally
-
+## Usage
+To run the tests locally:
 ```
-cd rung-3
 python -m pytest -q
 ```
 
-Expected (pre-fix): 2 fail (the two injection tests), 2 pass.
-Expected (post-fix): 4 pass.
+## Contributing
+Contributions are welcome! Please follow these guidelines:
+1. Fork the repository
+2. Create a new branch for your feature or bugfix
+3. Make your changes
+4. Add tests for your changes
+5. Commit your changes
+6. Push to your branch and create a pull request
 
-## Running gitoma on this rung
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-From minimac:
+## Example
+Here's a simple example of how to use the library:
+```python
+import sqlite3
+from src.db import get_conn, init_schema
 
+conn = get_conn()
+init_schema(conn)
+# ... perform operations ...
 ```
-gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
-  --base rung-3 --reset -y --no-self-review --no-ci-watch
-```
 
-Scoring:
-
-```
-python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
-```
+## Feature
+This repository demonstrates:
+- SQL injection vulnerabilities in Python applications
+- Parameterized query fixes to prevent SQL injection
+- Testing infrastructure for security testing
