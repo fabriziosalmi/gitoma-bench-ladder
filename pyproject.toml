@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=61"]
-build-backend = "setuptools.build_meta"
+build_backend = "setuptools.build_meta"
 
 [project]
 name = "gitoma-bench-rung-3"
@@ -20,4 +20,16 @@ select = [
     "W"
 ]
 ignore = [
-    "E501"]
+    "E501"
+]
+
+[tool.mypy]
+ignore_missing_imports = true
+warn_unused_ignores = true
+strict = false
+extend_parents = false
+files = [
+    "src",
+    "tests"
+]
+plugins = []
