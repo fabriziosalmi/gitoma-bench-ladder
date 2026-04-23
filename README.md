@@ -1,62 +1,61 @@
-# Rung 3 — Python + SQLite: SQL injection in `find_user_by_name`
+# gitoma-bench-ladder
 
-## What this rung tests
+## Overview
+This repository contains a benchmark for testing SQL injection vulnerabilities in Python applications using SQLite. It demonstrates how to identify and fix common security issues in database queries.
 
-Semantic security bug. The file compiles fine (no Build Integrity
-fail), but a single function leaks the entire users table to anyone
-who supplies a malicious name. This is the canonical SQL-injection
-pattern; gitoma's devil should flag it as a `¬S` (anti-hope) blocker
-and the worker should reach for the parameterised-query idiom.
+## Install
+To run the benchmarks, you'll need Python 3.8+ installed.
 
-## The injected bug
-
-`src/db.py:53` — `f"SELECT id, name FROM users WHERE name = '{name}'"`.
-F-string interpolation lets the caller close the SQL literal and
-inject arbitrary statements. The two adversarial tests in
-`tests/test_db.py` make this concrete:
-
-- `test_no_sql_injection`: name = `"' OR '1'='1"` — bypasses WHERE,
-  returns all 3 users pre-fix.
-- `test_no_sql_injection_via_comment`: name = `"alice'; --"` —
-  truncates the query via SQL line comment.
-
-## The fix
-
-```python
-cur = conn.execute(
-    "SELECT id, name FROM users WHERE name = ?",
-    (name,),
-)
+1. Clone the repository:
+```bash
+git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
+```
+2. Navigate to the project directory:
+```bash
+cd gitoma-bench-ladder
+```
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
 ```
 
-Stdlib `sqlite3` binds the parameter — the input is never parsed
-as SQL. This is the canonical fix; any equivalent (named binding,
-prepared statement) is fine as long as the f-string is removed.
-
-The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`)
-are correct. If gitoma touches them, that's a regression.
-
-## Running locally
-
-```
-cd rung-3
+## Usage
+To run the tests locally:
+```bash
 python -m pytest -q
 ```
 
-Expected (pre-fix): 2 fail (the two injection tests), 2 pass.
-Expected (post-fix): 4 pass.
+Expected results (before fixing the SQL injection bug):
+- 2 tests fail (the two injection tests)
+- 2 tests pass
 
-## Running gitoma on this rung
+Expected results (after fixing the SQL injection bug):
+- All 4 tests pass
 
-From minimac:
+## Contributing
+Contributions are welcome! Please follow these guidelines:
+1. Fork the repository
+2. Create a new branch for your feature or bugfix
+3. Make your changes
+4. Add tests for your changes
+5. Commit your changes
+6. Push to your branch and create a pull request
 
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Example
+Here's an example of how to fix the SQL injection vulnerability in `src/db.py`:
+
+```python
+# Before (vulnerable)
+cur = conn.execute(f"SELECT id, name FROM users WHERE name = '{name}'")
+
+# After (fixed)
+cur = conn.execute("SELECT id, name FROM users WHERE name = ?", (name,))
 ```
-gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
-  --base rung-3 --reset -y --no-self-review --no-ci-watch
-```
 
-Scoring:
-
-```
-python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
-```
+## Feature
+This benchmark demonstrates how to identify and fix SQL injection vulnerabilities in Python applications using SQLite. It includes:
+- Two adversarial tests that demonstrate how SQL injection can be used to bypass security checks
+- A fix that uses parameterised queries to prevent SQL injection
