@@ -1,0 +1,27 @@
+### Python
+# Byte-compiled / optimized / DLL files
+__pycache__/\n*.pyc
+
+# Package specific
+*.egg-info/
+
+# Testing
+.coveragerc
+
+# Logs and cache
+logs/
+*.log
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# Build and distribution
+build/
+dist/
+
+# Documentation
+docs/_output/
