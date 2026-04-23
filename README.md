@@ -1,5 +1,9 @@
 # gitoma-bench-ladder
 
+[![Build Status](https://github.com/yourusername/gitoma-bench-ladder/actions/workflows/build.yml/badge.svg)](https://github.com/yourusername/gitoma-bench-ladder/actions/workflows/build.yml)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/yourusername/gitoma-bench-ladder/blob/main/LICENSE)
+[![Python Version](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3.10/)
+
 ## Overview
 This repository contains a Python implementation demonstrating SQL injection vulnerabilities and their fixes. It's designed to be used with gitoma for security testing and benchmarking.
 
