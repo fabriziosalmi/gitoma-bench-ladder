@@ -11,7 +11,7 @@ This repository contains a benchmark for testing SQL injection vulnerabilities i
 - Includes adversarial test cases
 - Provides complete testing infrastructure
 
-## 🛠 Install
+## 🛠 Installation
 
 1. Clone the repository:
    ```bash
