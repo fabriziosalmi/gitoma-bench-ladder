@@ -1,0 +1,29 @@
+{
+  "rung": 4,
+  "pr_url": "https://github.com/fabriziosalmi/gitoma-bench-ladder/pull/16",
+  "pr_number": 16,
+  "base_branch": "rung-4",
+  "touched_files": [
+    ".gitignore",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "src/render.js"
+  ],
+  "expected_files": [
+    "src/render.js"
+  ],
+  "patch_coverage": 1.0,
+  "test_health": "fail",
+  "test_detail": {
+    "framework": "npm",
+    "exit": 1,
+    "tail": "  at Test.processPendingSubtests (node:internal/test_runner/test:831:18)\n      at Test.postRun (node:internal/test_runner/test:1330:19)\n      at Test.run (node:internal/test_runner/test:1258:12)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: '<div class=\"greeting\">Hello, \"><img src=x onerror=alert(1)>!</div>',\n    expected: /<img\\s+src=/i,\n    operator: 'doesNotMatch',\n    diff: 'simple'\n  }\n"
+  },
+  "loc_added": 121,
+  "loc_modified": 21,
+  "omega": 5.762,
+  "gamma_pre": -1,
+  "gamma_post": -1,
+  "ts": "2026-04-23T05:07:59+00:00"
+}
