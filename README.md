@@ -54,7 +54,8 @@ Expected results (post-fix): 4 pass.
 To run gitoma on this benchmark, use the following command from minimac:
 
 ```bash
-gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \n  --base rung-3 --reset -y --no-self-review --no-ci-watch
+gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder 
+  --base rung-3 --reset -y --no-self-review --no-ci-watch
 ```
 
 ### Scoring
