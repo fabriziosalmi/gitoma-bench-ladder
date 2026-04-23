@@ -11,3 +11,15 @@ requires-python = ">=3.10"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["A", "B", "C", "E", "F", "I", "S"]
+ignore = ["F841"]
+
+[tool.ruff.format]
+line-length = 79
+
+[tool.mypy.options]
+immutable-types = true
+ignore-missing-imports = true
+show-traceback = true

@@ -1,0 +1,7 @@
+version: 1
+updates:
+  - package-ecosystem: "pip"
+    directory: "./"
+    ecosystem-specification: "https://github.com/dependabot/dependabot-core/blob/main/docs/ecosystem-support.md#pip"
+    frequency: "daily"
+    allowed-directories: "."
