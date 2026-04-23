@@ -15,3 +15,11 @@ testpaths = ["tests"]
 [tool.ruff] 
 select = ["E","F","W","C"]
 ignore = ["E203", "E501"]
+
+[tool.mypy]
+check_untyped_calls = true
+ignore_missing_imports = true
+show_error_codes = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
