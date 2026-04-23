@@ -63,5 +63,10 @@ cur = conn.execute("SELECT id, name FROM users WHERE name = ?", (name,))
 
 To run this benchmark through gitoma:
 ```
-gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \n  --base rung-3 --reset -y --no-self-review --no-ci-watch
+gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder 
+  --base rung-3 --reset -y --no-self-review --no-ci-watch
 ```
+
+[![Build Status](https://github.com/fabriziosalmi/gitoma-bench-ladder/actions/workflows/test.yml/badge.svg)](https://github.com/fabriziosalmi/gitoma-bench-ladder/actions/workflows/test.yml)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/Python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
