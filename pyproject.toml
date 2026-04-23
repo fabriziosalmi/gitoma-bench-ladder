@@ -22,3 +22,9 @@ ignore-missing-imports = true
 check-untyped-defs = false
 warn-unused-ignores = true
 ignore-missing-runtime-typing = true
+
+[tool.coverage.config]
+source = src
+branch = True
+include = src/
+exclude = tests/
