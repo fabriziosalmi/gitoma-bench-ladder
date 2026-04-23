@@ -1,0 +1,5 @@
+site_name: gitoma-bench-ladder Documentation
+nav:
+  - Home: index.md
+  - Features: features.md
+  - Getting Started: getting-started.md
