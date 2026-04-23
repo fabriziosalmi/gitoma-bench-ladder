@@ -31,8 +31,11 @@ cur = conn.execute(
 Stdlib `sqlite3` binds the parameter — the input is never parsed
 as SQL. This is the canonical fix; any equivalent (named binding,
 prepared statement) is fine as long as the f-string is removed.
-
 The other functions in `src/db.py` (`get_conn`, `init + init_schema`, `seed`) are correct. If gitoma touches them, that's a regression.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE) or [Apache-2.0 License](LICENSE). Please see the LICENSE file for details.
 
 ## Usage Examples
 
