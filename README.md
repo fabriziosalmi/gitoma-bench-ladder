@@ -65,3 +65,7 @@ Scoring:
 ```
 python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE] file for details.
