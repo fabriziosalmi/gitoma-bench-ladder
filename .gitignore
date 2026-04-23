@@ -1,0 +1,20 @@
+## Python
+__pycache__/
+*.pyc
+
+## Virtual environment
+venv/
+env/
+
+## OS generated files
+.DS_Store
+Thumbs.db
+
+## Build and test files
+*.egg-info/
+*.tar.gz
+*.zip
+
+# Coverage
+.coverage
+htmlcov/
