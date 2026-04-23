@@ -11,3 +11,11 @@ requires-python = ">=3.10"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.mypy]
+implement_pyi = true
+ignore_missing_imports = true
+show_error_codes = true
+warn_unreachable = true
+check_untyped_defs = true
+ignore_errors = false
