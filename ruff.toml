@@ -1,0 +1,6 @@
+[tool.ruff]
+select = ["A","B","C","D","E","F","I"]
+ignore = ["W504"]
+
+[tool.ruff.lint]
+exclude = ["tests"]
