@@ -104,4 +104,9 @@ python bench/bench_rung.py --rung 3 --pr-url <PR-URL>
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the
+... (truncated)
+
+## Dependabot Configuration
+
+Dependabot is enabled to automatically update dependencies. This ensures that the project always uses the latest versions of its dependencies, improving security and performance.
