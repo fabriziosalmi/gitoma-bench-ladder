@@ -34,6 +34,25 @@ as SQL. This is the canonical fix; any equivalent (named binding,
 prepared statement) is fine as long as the f-string is removed.
 The other functions in `src/db.py` (`get_conn`, `init_schema`, `seed`) are correct. If gitoma touches them, that's a regression.
 
+## Usage
+
+1. Clone the repository:
+   ```bash
+git clone https://github.com/fabriziosalmi/gitoma-bench-ladder.git
+git checkout rung-3
+```
+2. Create a virtual environment and install dependencies:
+   ```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+3. Run the tests:
+   ```bash
+gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
+  --base rung-3 --reset -y --no-self-review --no-ci-watch
+```
+
 ## Running locally
 
 ```
@@ -68,6 +87,5 @@ git checkout rung-3
 cd gitoma-bench-ladder
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
 gitoma run https://github.com/fabriziosalmi/gitoma-bench-ladder \
   --base rung-3 --reset -y --no-self-review --no-ci-watch
