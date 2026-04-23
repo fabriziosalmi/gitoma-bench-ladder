@@ -11,3 +11,7 @@ requires-python = ">=3.10"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.ruff] 
+select = ["E","F","W","C"]
+ignore = ["E203", "E501"]
