@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import sqlite3
 
-
 def get_conn() -> sqlite3.Connection:
     """Open an in-memory SQLite connection with row-dict access."""
     conn = sqlite3.connect(
@@ -14,7 +13,7 @@ def get_conn() -> sqlite3.Connection:
 
 def init_schema(conn: sqlite3.Connection) -> None:
     conn.execute(
-        """
+        """>
         CREATE TABLE IF NOT EXISTS users (
             id   INTEGER PRIMARY KEY,
             name TEXT NOT NULL UNIQUE
