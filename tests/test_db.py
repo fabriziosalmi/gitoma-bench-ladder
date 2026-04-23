@@ -25,8 +25,7 @@ def test_no_sql_injection(db):
     """A malicious name designed to bypass the WHERE clause must NOT
     return all rows. Pre-fix this leaks every user; post-fix the input
     is treated as a literal name (which doesn't match any real user) and
-    the result is empty.
-    """
+    the result is empty."""
     payload = "' OR '1'='1"
     rows = find_user_by_name(db, payload)
     assert rows == [], (
