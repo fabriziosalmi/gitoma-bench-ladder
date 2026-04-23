@@ -1,54 +1,23 @@
 # gitoma-bench-ladder
 
-## Project Overview
+A project to ... (add relevant details here)
 
-This repository contains a benchmark for testing semantic security vulnerabilities in Python applications using SQLite. The focus is on preventing SQL injection attacks through proper parameter binding techniques.
+## Getting Started
 
-## Features
+To get started with the project, follow these steps:
 
-- Tests for SQL injection vulnerabilities
-- Example of a vulnerable query and its fix
-- Demonstration of parameterized queries for secure database interactions
+1. Clone the repository: `git clone https://github.com/your-username/gitoma-bench-ladder`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Run the application: `python main.py`
 
-## Installation
+## Documentation
 
-To install the project, ensure you have Python installed. Then run:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Usage
-
-To run the tests, use:
-
-```bash
-cd rung-3
-python -m pytest -q
-```
+Documentation for the project can be found at [https://your-docs-url.com](https://your-docs-url.com)
 
 ## Contributing
 
-Contributions are welcome! Please review the existing tests and consider adding new ones to further explore security vulnerabilities.
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Example
-
-Here's an example of a vulnerable query and its secure fix:
-
-### Vulnerable Code
-```python
-f"SELECT id, name FROM users WHERE name = '{name}'"
-```
-
-### Secure Fix
-```python
-cur = conn.execute("SELECT id, name FROM users WHERE name = ?", (name,))
-```
-
-## Feature
-
-This project demonstrates the importance of parameterized queries in preventing SQL injection attacks. The example shows how to correctly bind parameters to avoid security vulnerabilities.
+This project is licensed under the [MIT License](LICENSE).
