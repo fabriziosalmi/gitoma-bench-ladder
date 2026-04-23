@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+
+## Build
+build/
+
+## Tests
+tests/__pycache__/
+
+## IDE
+.idea/
+.vscode/
+
+## OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
