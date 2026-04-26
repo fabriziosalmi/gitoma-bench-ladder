@@ -1,0 +1,12 @@
+{
+  "name": "gitoma-bench-ladder",
+  "version": "1.0.0",
+  "description": "Benchmarking framework for comparing Python/Go/Rust/JS performance",
+  "type": "module",
+  "main": "bench/build_site.js",
+  "scripts": {
+    "build": "node bench/build_site.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
