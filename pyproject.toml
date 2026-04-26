@@ -5,3 +5,9 @@ build-backend = "setuptools.build_meta"
 [dependencies]
 pytest = "^7.0"
 requests = "^2.26"
+mypy = "^1.5"
+
+[tool.mypy]
+check_untyped_names = true
+disallow_any_generics = true
+strict = true
