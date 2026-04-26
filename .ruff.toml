@@ -1,0 +1,5 @@
+[tool.ruff]
+plugins = ["ruff.pycodestyle"]
+exclude = ["bench/results", "rung-*/"]
+ignore = ["E203", "E501", "W504"]
+format = "google"
