@@ -12,3 +12,6 @@ node_modules/
 # Rebuilt on every push by .github/workflows/bench-pages.yml.
 # Committing it would create a stale copy on every local build.
 docs/
+
+# Workspace settings
+.ruff_cache/
